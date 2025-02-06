@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Main Content Section -->
+<main class="container mx-auto p-12">
+    <!-- Hero Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Left Side (Text & CTA) -->
+        <div>
+            <h1 class="text-5xl font-extrabold text-gray-900 leading-tight">
+                Discover Your Next <span class="text-red-600">Favorite</span> Movie Today!
+            </h1>
+            <p class="mt-4 text-lg text-gray-600">
+                Welcome to <span class="font-semibold text-gray-800">GT Movies Store</span>, where cinematic adventures await.
+                Explore our extensive collection of films and find the perfect movie for every occasion.
+            </p>
+            <div class="mt-6 flex gap-4">
+                <a href="{% url 'movies.index' %}" class="bg-red-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-red-700 transition-all">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Side (Image) -->
+        <div>
+            <img src="{% static 'images/1.jpg' %}" alt="Movie Poster" class="rounded-lg shadow-lg w-full"
+                 onerror="this.onerror=null; this.src='{% static 'images/default.jpg' %}';">
+        </div>
+    </div>
+</main>
+{% endblock %}
