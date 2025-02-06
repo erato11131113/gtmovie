@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GT Movies Store{% endblock %}</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-900">
+    <!-- Header Section -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <!-- Navigation -->
+            <nav class="flex gap-4">
+                <a href="/" class="text-gray-600 hover:text-black">Home Page</a>
+                <a href="#" class="text-gray-600 hover:text-black">About Us</a>
+                <a href="/movies/" class="text-gray-600 hover:text-black">Movie List</a>
+            </nav>
+
+            <!-- Centered Logo -->
+            <div class="text-xl font-bold absolute left-1/2 transform -translate-x-1/2">
+                Logo
+            </div>
+
+            <!-- Order Button -->
+            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+                Order
+            </button>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-200 p-4 text-center mt-16">
+        © 2025 GT Movies Store. All rights reserved.
+    </footer>
+</body>
+</html>

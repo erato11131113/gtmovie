@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - GT Movies Store</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-900">
+    <!-- Header Section -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <nav class="flex gap-4">
+                <a href="#" class="text-gray-600 hover:text-black">Home Page</a>
+                <a href="#" class="text-gray-600 hover:text-black">About Us</a>
+                <a href="#" class="text-gray-600 hover:text-black font-bold">Movie List</a>
+            </nav>
+            <div class="text-xl font-bold absolute left-1/2 transform -translate-x-1/2">
+                Logo
+            </div>
+            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+                Order
+            </button>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb" class="bg-gray-200 py-3 px-5">
+        <ol class="flex space-x-2 text-sm text-gray-700">
+            <li><a href="#" class="text-gray-600 hover:text-black">Browse Movies</a></li>
+            <li>/</li>
+            <li><a href="#" class="text-gray-600 hover:text-black">Action</a></li>
+            <li>/</li>
+            <li class="font-bold">Inception</li>
+        </ol>
+    </nav>
+
+    <!-- Movie Details Section -->
+    <main class="container mx-auto p-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Movie Images -->
+            <div class="col-span-1">
+                <img src="{% static 'images/movie1.jpg' %}" alt="Inception Poster" class="rounded-lg shadow w-full">
+                <div class="grid grid-cols-4 gap-2 mt-4">
+                    <img src="{% static 'images/movie1_thumb1.jpg' %}" alt="Thumbnail 1" class="rounded-lg shadow">
+                    <img src="{% static 'images/movie1_thumb2.jpg' %}" alt="Thumbnail 2" class="rounded-lg shadow">
+                    <img src="{% static 'images/movie1_thumb3.jpg' %}" alt="Thumbnail 3" class="rounded-lg shadow">
+                    <img src="{% static 'images/movie1_thumb4.jpg' %}" alt="Thumbnail 4" class="rounded-lg shadow">
+                </div>
+            </div>
+
+            <!-- Movie Overview -->
+            <div class="col-span-2 space-y-4">
+                <h1 class="text-4xl font-bold">Inception Movie</h1>
+                <p class="text-gray-700">Inception is a mind-bending thriller that explores the world of dreams. Directed by Christopher Nolan, it features stunning visuals and a gripping storyline.</p>
+                <ul class="space-y-1 text-gray-600">
+                    <li><strong>Genre:</strong> Sci-Fi, Action, Thriller</li>
+                    <li><strong>Release Date:</strong> July 16, 2010</li>
+                    <li><strong>Rating:</strong> PG-13</li>
+                </ul>
+
+                <!-- Pricing and Purchase Options -->
+                <p class="text-2xl font-bold">$19.99</p>
+                <div class="flex gap-4">
+                    <button class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800">Add to Cart</button>
+                    <button class="border border-gray-400 text-gray-800 px-6 py-3 rounded hover:bg-gray-200">Purchase Now</button>
+                </div>
+
+                <!-- Tabs for Additional Information -->
+                <div>
+                    <div class="border-b border-gray-300 mb-4">
+                        <ul class="flex space-x-4 text-sm">
+                            <li><button class="pb-2 border-b-2 border-black font-bold">Overview</button></li>
+                            <li><button class="pb-2 text-gray-600 hover:text-black">Delivery</button></li>
+                            <li><button class="pb-2 text-gray-600 hover:text-black">Refunds</button></li>
+                        </ul>
+                    </div>
+                    <p class="text-gray-600">Returns are accepted within 30 days of purchase. Items must be in original condition. Contact customer service for assistance.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-200 p-4 text-center mt-16">
+        © 2025 GT Movies Store. All rights reserved.
+    </footer>
+</body>
+</html>
