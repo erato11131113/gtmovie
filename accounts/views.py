@@ -4,6 +4,7 @@ from .forms import CustomUserCreationForm, CustomErrorList
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.auth.views import PasswordResetView
 
 @login_required
 def logout(request):
@@ -46,3 +47,9 @@ def orders(request):
     template_data['title'] = 'Orders'
     template_data['orders'] = request.user.order_set.all()
     return render(request, 'accounts/orders.html', {'template_data': template_data})
+
+class CustomPasswordResetView(PasswordResetView):
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        print("Password reset email sent to:", form.cleaned_data['email'])  # Debug email
+        return response
