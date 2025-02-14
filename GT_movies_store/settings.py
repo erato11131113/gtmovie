@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 
@@ -132,11 +132,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'moviesstore/static/',
+    BASE_DIR / 'home/static',
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # SMTP backend for sending emails
 EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider’s SMTP server
