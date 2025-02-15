@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-_kur06-$n*zu0+hw7u#)doz_3@w5k4*#zqo-aqlmb1q&0kdmkh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -138,7 +138,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# settings.py
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # SMTP backend for sending emails
 EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider’s SMTP server
 EMAIL_PORT = 587
@@ -146,5 +146,3 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'storemovie799@gmail.com'  # Replace with your email address
 EMAIL_HOST_PASSWORD = 'zltw sivj hyku ukuc'  # Use an app password or environment variable
 DEFAULT_FROM_EMAIL = 'storemovie799@gmail.com'
-PASSWORD_RESET_TIMEOUT = 86400
-LOGIN_URL = '/login/'
