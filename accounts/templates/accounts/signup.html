@@ -6,13 +6,32 @@
       <div class="col-md-8">
         <div class="card shadow p-3 mb-4 rounded">
           <div class="card-body">
-            <h2>Sign Up</h2>
+            <h2>Registration</h2>
             <hr />
             <form method="POST">
               {% csrf_token %}
-              {{ template_data.form.as_p }}
-              <button type="submit" class="btn bg-dark text-white">
-                Sign Up
+              <!-- Username -->
+              <div class="form-group mb-3">
+                {{ template_data.form.username.errors }}
+                {{ template_data.form.username }}
+              </div>
+              <!-- Password -->
+              <div class="form-group mb-3">
+                {{ template_data.form.password1.errors }}
+                {{ template_data.form.password1 }}
+              </div>
+              <!-- Confirm your password-->
+              <div class="form-group mb-3">
+                {{ template_data.form.password2.errors }}
+                {{ template_data.form.password2 }}
+              </div>
+              <!-- email -->
+              <div class="form-group mb-3">
+                {{ template_data.form.email.errors }}
+                {{ template_data.form.email }}
+              </div>
+              <button type="submit" class="btn bg-dark text-white w-100">
+                Register
               </button>
             </form>
           </div>

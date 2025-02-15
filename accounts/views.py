@@ -1,10 +1,13 @@
-from django.shortcuts import render
 from django.contrib.auth import login as auth_login, authenticate, logout as auth_logout
 from .forms import CustomUserCreationForm, CustomErrorList
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import PasswordResetView
+from django.conf import settings
+from django.shortcuts import render, redirect
+from django.contrib.auth import login as auth_login
+from .forms import CustomUserCreationForm
 
 @login_required
 def logout(request):
@@ -25,21 +28,24 @@ def login(request):
             auth_login(request, user)
             return redirect('home.index')
 
-def signup(request):
-    template_data = {}
-    template_data['title'] = 'Sign Up'
 
-    if request.method == 'GET':
-        template_data['form'] = CustomUserCreationForm()
-        return render(request, 'accounts/signup.html', {'template_data': template_data})
-    elif request.method == 'POST':
-        form = CustomUserCreationForm(request.POST, error_class=CustomErrorList)
+def signup(request):
+    template_data = {'title': 'register', 'form': None}
+
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('accounts.login')
+            user = form.save(commit=False)
+            user.email = form.cleaned_data['email']  # 强制保存邮箱
+            user.save()
+            auth_login(request, user)  # 可选：自动登录
+            return redirect('home.index')
         else:
             template_data['form'] = form
-            return render(request, 'accounts/signup.html', {'template_data': template_data})
+    else:
+        template_data['form'] = CustomUserCreationForm()
+
+    return render(request, 'accounts/signup.html', {'template_data': template_data})
 
 @login_required
 def orders(request):
@@ -49,7 +55,8 @@ def orders(request):
     return render(request, 'accounts/orders.html', {'template_data': template_data})
 
 class CustomPasswordResetView(PasswordResetView):
+    success_url = '/home/'
     def form_valid(self, form):
         response = super().form_valid(form)
-        print("Password reset email sent to:", form.cleaned_data['email'])  # Debug email
+        print("Password reset email sent to:", form.cleaned_data['email'])
         return response
